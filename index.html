@@ -21,6 +21,11 @@
         .def-list dt { font-weight: 700; color: #1e3a8a; display: flex; align-items: center; margin-bottom: 0.5rem; }
         .def-list dt svg { width: 1.25rem; height: 1.25rem; margin-right: 0.5rem; color: #4f46e5; }
         .def-list dd { margin-left: 2rem; margin-bottom: 1.25rem; color: #374151; padding-left: 0.25rem; border-left: 2px solid #e0e7ff; }
+        #player {
+            width: 100%;
+            border-radius: 8px;
+            overflow: hidden;
+        }
     </style>
     <title>네 병거와 순의 예언: 온 땅의 주, 메시아</title>
 </head>
@@ -143,7 +148,45 @@
                     <p class="mt-4">오늘날 우리의 유일한 왕과 대제사장은 오직 예수 그리스도이십니다. 세상의 소리가 아닌 하나님의 말씀을 듣고, 우리의 생각과 마음을 그리스도께 고정하며 그분의 뜻을 따라 살아가는 것이 우리의 사명입니다.</p>
                 </div>
             </div>
+            <!-- 설교 듣기 -->
+            <div class="card">
+                <div class="card-content">
+                    <div class="flex items-center mb-6">
+                        <div class="icon-wrapper bg-indigo-600">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
+                            </svg>
+                        </div>
+                        <h2 class="text-2xl font-bold text-indigo-700">설교 듣기</h2>
+                    </div>
+                    <p class="mb-4 text-gray-600">아래 플레이어를 통해 오늘 설교를 오디오로 들으실 수 있습니다.</p>
+                    <div id="player"></div>
+                </div>
+            </div>
         </main>
     </div>
+    
+    <script>
+        // Load the IFrame Player API code asynchronously.
+        var tag = document.createElement('script');
+        tag.src = "https://www.youtube.com/iframe_api";
+        var firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+        var player;
+        
+        // This function creates an <iframe> (and YouTube player)
+        // after the API code downloads.
+        function onYouTubeIframeAPIReady() {
+            player = new YT.Player('player', {
+                height: '200',
+                width: '100%',
+                videoId: 'hC9admfaO2E',
+                playerVars: {
+                    'playsinline': 1
+                }
+            });
+        }
+    </script>
 </body>
 </html>
